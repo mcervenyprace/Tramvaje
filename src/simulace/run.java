@@ -1,5 +1,7 @@
 package simulace;
 
+import simulace.tramvaj.stavTramvaje;
+
 public class run {
 
 	public static void main(String args[]){
@@ -19,11 +21,18 @@ public class run {
 
 		final int[] poleZpozdeni1 = {2,6,7};
 		final int[] poleZpozdeni2 = {2,13};
-			
 		
+		
+		
+		
+		
+		//tramvaj prvniTramvaj = new tramvaj(tramvaj.stavTramvaje.vprovozu, poleZastavek1[0], null, "RX1");
+		
+				
 		
 		
 			System.out.println("Vitejte v Martinovo simulaci tramvaji!");
+			System.out.println(poleZastavek1[0]);
 		}
 			
 	
