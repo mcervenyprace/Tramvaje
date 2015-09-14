@@ -41,9 +41,9 @@ public class run {
 			linkaA.pridejStanice(novaStanice);
 			
 			if(predchoziStanice != null){
-				spoj.spojDveStanice(predchoziStanice,novaStanice, linkaA,poleVzdalenosti1[i],poleZpozdeni1[i]);
-				predchoziStanice = novaStanice;
+				spoj.spojDveStanice(predchoziStanice,novaStanice, linkaA,poleVzdalenosti1[i-1],poleZpozdeni1[i-1]);	
 			}
+			predchoziStanice = novaStanice;
 			
 			
 		}
@@ -63,16 +63,14 @@ public class run {
 			linkaB.pridejStanice(novaStanice);
 			
 			if(predchoziStanice != null){
-				spoj.spojDveStanice(predchoziStanice,novaStanice, linkaA,poleVzdalenosti1[i],poleZpozdeni1[i]);
-				predchoziStanice = novaStanice;
+				spoj.spojDveStanice(predchoziStanice,novaStanice, linkaA,poleVzdalenosti2[i-1],poleZpozdeni2[i-1]);
 			}
+			predchoziStanice = novaStanice;
 		}
 		
 		linkaB.vypis();
 		
-		System.out.println("##########");
-		
-		
+		System.out.println("##########");	
 		
 		
 		}

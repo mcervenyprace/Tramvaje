@@ -34,6 +34,9 @@ public class linka {
 			try{
 				stanice vypsat = (stanice) zasobnik.pop();
 				System.out.println(vypsat.getNazev());
+				stanice nasledujiciStanice = vypsat.getNasledujici();
+				if(nasledujiciStanice != null){
+				System.out.println("Predchazejici je: " + nasledujiciStanice.getNazev());}
 				nahrada.push(vypsat);
 			
 			}
