@@ -19,10 +19,35 @@ public class tramvaj {
 	public smerTramvaje smer; //popis jak je tramvaj otocena (nemuze se otocit)
 	public stanice dosazenaStanice;
 	public String id;
+	public udalost posledniUdalost;
 
 	
 	
 	
+	public smerTramvaje getSmer() {
+		return smer;
+	}
+
+
+
+	public void setSmer(smerTramvaje smer) {
+		this.smer = smer;
+	}
+
+
+
+	public udalost getPosledniUdalost() {
+		return posledniUdalost;
+	}
+
+
+
+	public void setPosledniUdalost(udalost posledniUdalost) {
+		this.posledniUdalost = posledniUdalost;
+	}
+
+
+
 	public stavTramvaje getStav() {
 		return stav;
 	}

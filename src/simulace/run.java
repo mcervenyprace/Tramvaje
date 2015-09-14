@@ -1,8 +1,16 @@
 package simulace;
 
+
+
+import java.util.*;
+
+import simulace.cas.udajCasu;
 import simulace.tramvaj.stavTramvaje;
+import simulace.udalost.typUdalosti;
 
 public class run {
+	
+	public static final int nastupVystup = 3; 
 
 	public static void main(String args[]){
 		
@@ -22,6 +30,10 @@ public class run {
 
 		final int[] poleZpozdeni1 = {2,6,7};
 		final int[] poleZpozdeni2 = {2,13};		
+		
+		// doba nastupu a vystupu
+		
+		
 		
 		//tramvaj prvniTramvaj = new tramvaj(tramvaj.stavTramvaje.vprovozu, poleZastavek1[0], null, "RX1");	
 		
@@ -84,8 +96,31 @@ public class run {
 		tramvaj tram3 = new tramvaj(tramvaj.stavTramvaje.rozbita, tramvaj.smerTramvaje.neexistuje,"V oprave", opravarna, "BKE3");
 		tram3.printTramvaj();
 		
+	
 		
+		System.out.println("##########");
+		System.out.println("Vitejte v Martinovo simulaci tramvaji!");
 		
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Zadejte prosim pocet vterin po ktere ma simulace bezet:");
+		// get user input for a
+		//int casMax = reader.nextInt();		
+		int casMax = 1;
+		
+		udajCasu t = new udajCasu(0, 0,0, 0);
+		System.out.println("Pocatecni cas je:");
+		t.vypis();
+		
+		Stack zasobnikUdalosti = new Stack(); //zasobnik s udalostmi
+		Random nahoda = new Random(); // generator nahodnych cisel
+		
+		udalost udalost1 = new udalost(t, t, udalost.typUdalosti.jizdaVpred, tram1.getId(), tram1.getMisto(),tram1,nahoda);
+		tram1.setPosledniUdalost(udalost1);
+		
+		zasobnikUdalosti.push(udalost1);
+		udalost1.printUdalost();
+		udalost.vyvolejUdalost(udalost1,zasobnikUdalosti,nahoda);
+				
 		
 	}
 	

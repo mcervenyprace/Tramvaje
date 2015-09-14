@@ -23,6 +23,13 @@ public class cas {
 			this.zvysCas(0);//automaticky upravi format...
 		}
 		
+		public static udajCasu kopie(udajCasu u){
+			udajCasu novy = new udajCasu(u.getSekunda(), u.getMinuta(), u.getHodina(), u.getDen());
+			return novy;
+		}
+		
+
+		
 		public int getMinuta() {
 			return minuta;
 		}
@@ -135,6 +142,7 @@ public class cas {
 			
 	}
 	
+
 	
 	
 	
