@@ -11,10 +11,15 @@ public class tramvaj {
 
 
 	public enum stavTramvaje {vprovozu,rozbita}
+	public enum smerTramvaje {vpred, vzad, neexistuje}
+	
+	
 	public stavTramvaje stav;
 	public String misto; //popis kde tramvaj je
+	public smerTramvaje smer; //popis jak je tramvaj otocena (nemuze se otocit)
 	public stanice dosazenaStanice;
 	public String id;
+
 	
 	
 	
@@ -66,7 +71,7 @@ public class tramvaj {
 
 
 
-	public tramvaj(stavTramvaje stav, String misto, stanice dosazenaStanice, String id) {
+	public tramvaj(stavTramvaje stav, smerTramvaje smer, String misto, stanice dosazenaStanice, String id) {
 		super();
 		this.stav = stav;
 		this.misto = misto;
