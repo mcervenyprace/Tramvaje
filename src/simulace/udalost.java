@@ -182,7 +182,24 @@ public class udalost {
 			novaUdalost.printUdalost();
 			tramcka.setPosledniUdalost(novaUdalost);
 			
-			
+			//ZAVEDENI KARAMBOLU
+			if(nova.getNazev() == "Uzlova"){
+				Iterator projdi = zasobnikUdalosti.iterator();
+				for(int i=0;i<zasobnikUdalosti.size();i++){
+					udalost udal = (udalost) projdi.next();
+					retezec = udal.getLokace();//stoji ci jede
+					if( retezec.contains("Uzlova")){
+						System.out.println("POZOR!!! 2 TRAMVAJE NA KRIZOVATCE UZLOVA!!! POZOR!!!");
+						System.out.println("###########################");
+						System.out.println("PRÁSK!!! SRÁŽKA!!! PRÁSK!!!");
+						System.out.println("###########################");
+						zasobnikUdalosti.clear();
+						return novaUdalost;
+					}
+
+				}
+				
+			}
 			
 			
 			

@@ -11,6 +11,7 @@ import simulace.udalost.typUdalosti;
 public class run {
 	
 	public static final int nastupVystup = 3; 
+	public static final int minutaVterin = 60; 
 
 	public static void main(String args[]){
 		
@@ -102,10 +103,10 @@ public class run {
 		System.out.println("Vitejte v Martinovo simulaci tramvaji!");
 		
 		Scanner reader = new Scanner(System.in);
-		System.out.println("Zadejte prosim pocet vterin po ktere ma simulace bezet:");
+		System.out.println("Zadejte prosim pocet minut po ktere ma simulace bezet:");
 		// get user input for a
-		//int casMax = reader.nextInt();		
-		int casMax = 6000;
+		int casMax = reader.nextInt()*minutaVterin;		
+		//int casMax = 6000;
 		
 		udajCasu t = new udajCasu(0, 0,0, 0);
 		System.out.println("Pocatecni cas je:");
