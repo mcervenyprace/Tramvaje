@@ -74,9 +74,19 @@ public class tramvaj {
 	public tramvaj(stavTramvaje stav, smerTramvaje smer, String misto, stanice dosazenaStanice, String id) {
 		super();
 		this.stav = stav;
+		this.smer = smer;
 		this.misto = misto;
 		this.dosazenaStanice = dosazenaStanice;
 		this.id = id;
+	}
+	
+	public void printTramvaj(){
+		System.out.println("Tramvaj cislo: " + this.getId());
+		System.out.println("Nachazi se na misto: " + this.getMisto());
+		System.out.println("Nejpozdeji dosazena stanice: " + this.getDosazenaStanice().getNazev());
+		System.out.println("Ve stavu: " + this.getStav());		
+		
+		
 	}
 
 

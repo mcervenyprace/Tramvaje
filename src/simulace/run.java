@@ -72,8 +72,34 @@ public class run {
 		
 		System.out.println("##########");	
 		
+		//vytvoreni tramvaji
 		
-		}
-			
-	
+		tramvaj tram1 = new tramvaj(tramvaj.stavTramvaje.vprovozu, tramvaj.smerTramvaje.vpred, poleZastavek1[0], polestanic1[0], "RX2");
+		tram1.printTramvaj();
+		
+		tramvaj tram2 = new tramvaj(tramvaj.stavTramvaje.rozbita, tramvaj.smerTramvaje.vzad, poleZastavek2[2], polestanic2[2], "VU12");
+		tram2.printTramvaj();
+		
+		stanice opravarna = new stanice("opravarna");
+		tramvaj tram3 = new tramvaj(tramvaj.stavTramvaje.rozbita, tramvaj.smerTramvaje.neexistuje,"V oprave", opravarna, "BKE3");
+		tram3.printTramvaj();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 }
+	
+	
+}	
+	
+	
+	
+	
+	
+	
