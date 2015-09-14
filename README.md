@@ -1,1 +1,1 @@
-Simple program for reminding myself of Java.
+A simple program for reminding myself of Java.
