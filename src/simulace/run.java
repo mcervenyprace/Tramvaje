@@ -20,19 +20,18 @@ public class run {
 		// pole s variancemi zpozdeni
 
 		final int[] poleZpozdeni1 = {2,6,7};
-		final int[] poleZpozdeni2 = {2,13};
+		final int[] poleZpozdeni2 = {2,13};		
+		
+		//tramvaj prvniTramvaj = new tramvaj(tramvaj.stavTramvaje.vprovozu, poleZastavek1[0], null, "RX1");	
+		
+		final stanice[] polestanic1 = new stanice[4];
+		final stanice[] polestanic2 = new stanice[3];
 		
 		
+		System.out.println("Vitejte v Martinovo simulaci tramvaji!");
+		//System.out.println(poleZastavek1[0]); //kontrola pole
 		
 		
-		
-		//tramvaj prvniTramvaj = new tramvaj(tramvaj.stavTramvaje.vprovozu, poleZastavek1[0], null, "RX1");
-		
-				
-		
-		
-			System.out.println("Vitejte v Martinovo simulaci tramvaji!");
-			System.out.println(poleZastavek1[0]);
 		}
 			
 	
