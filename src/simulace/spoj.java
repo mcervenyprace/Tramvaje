@@ -16,7 +16,7 @@ public class spoj {
 	 * nastavi predchozi u "druhe" a nasledujici stanice u "prvni"
 	 * 
 	 */
-	public spoj spojDveStanice(stanice prvniStanice,stanice druhaStanice, linka linkaStanic,int prumer,int variance){
+	public static spoj spojDveStanice(stanice prvniStanice,stanice druhaStanice, linka linkaStanic,int prumer,int variance){
 		
 		spoj spojMeziStanicemi = new spoj(linkaStanic,prvniStanice, druhaStanice,prumer,variance);
 		

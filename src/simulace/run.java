@@ -6,6 +6,7 @@ public class run {
 
 	public static void main(String args[]){
 		
+		System.out.println("Vitejte v Martinovo simulaci tramvaji!");
 		
 		// pole s nazvy zastavek 
 		
@@ -31,22 +32,48 @@ public class run {
 		
 		linka linkaA = new linka('A');
 		
+		stanice predchoziStanice = null;
+		
 		for(int i=0;i<polestanic1.length;i++){
 			stanice novaStanice = new stanice(poleZastavek1[i]);
 			novaStanice.setLinkaTetoStanice(linkaA);
 			polestanic1[i] = novaStanice;
 			linkaA.pridejStanice(novaStanice);
+			
+			if(predchoziStanice != null){
+				spoj.spojDveStanice(predchoziStanice,novaStanice, linkaA,poleVzdalenosti1[i],poleZpozdeni1[i]);
+				predchoziStanice = novaStanice;
+			}
+			
+			
 		}
 		
 		linkaA.vypis();
 		
+		System.out.println("##########");
+		
+		predchoziStanice = null;
+		
+		linka linkaB = new linka('B');
+		
+		for(int i=0;i<polestanic2.length;i++){
+			stanice novaStanice = new stanice(poleZastavek2[i]);
+			novaStanice.setLinkaTetoStanice(linkaB);
+			polestanic2[i] = novaStanice;
+			linkaB.pridejStanice(novaStanice);
+			
+			if(predchoziStanice != null){
+				spoj.spojDveStanice(predchoziStanice,novaStanice, linkaA,poleVzdalenosti1[i],poleZpozdeni1[i]);
+				predchoziStanice = novaStanice;
+			}
+		}
+		
+		linkaB.vypis();
+		
+		System.out.println("##########");
 		
 		
 		
-		
-		
-		System.out.println("Vitejte v Martinovo simulaci tramvaji!");
-		//System.out.println(poleZastavek1[0]); //kontrola pole
 		
 		}
 			

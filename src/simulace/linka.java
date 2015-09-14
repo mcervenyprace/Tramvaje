@@ -51,6 +51,8 @@ public class linka {
 	}
 	
 	
+	
+	
 	public void setPismeno(char nazev){
 		this.pismeno = nazev;
 	}
