@@ -209,12 +209,12 @@ public class udalost {
 		int cislo = U.getKonecUdalosti().vypoctiPoradi();
 		int citac;
 		for(citac=0;citac<listek.size();citac++){
-			if(cislo>=policko[citac]){
+			if(cislo<=policko[citac]){
 				break;
 			}
 		}
 		listek.add(citac, U);
-		System.out.println("Zarazeno");
+		//System.out.println("Zarazeno " + citac + " " + listek.size());
 			
 			
 		}

@@ -89,7 +89,7 @@ public class run {
 		tramvaj tram1 = new tramvaj(tramvaj.stavTramvaje.vprovozu, tramvaj.smerTramvaje.vpred, poleZastavek1[3], polestanic1[3], "RX2");
 		tram1.printTramvaj();
 		
-		tramvaj tram2 = new tramvaj(tramvaj.stavTramvaje.rozbita, tramvaj.smerTramvaje.vzad, poleZastavek2[2], polestanic2[2], "VU12");
+		tramvaj tram2 = new tramvaj(tramvaj.stavTramvaje.vprovozu, tramvaj.smerTramvaje.vzad, poleZastavek2[2], polestanic2[2], "VU12");
 		tram2.printTramvaj();
 		
 		stanice opravarna = new stanice("opravarna");
@@ -117,7 +117,11 @@ public class run {
 		udalost udalost1 = new udalost(t, t, udalost.typUdalosti.nastupVystup, tram1.getId(), tram1.getMisto(),tram1,nahoda);
 		tram1.setPosledniUdalost(udalost1);
 		
+		udalost udalost2 = new udalost(t, t, udalost.typUdalosti.nastupVystup, tram2.getId(), tram2.getMisto(),tram2,nahoda);
+		tram2.setPosledniUdalost(udalost2);
+		
 		zasobnikUdalosti.add(udalost1);
+		zasobnikUdalosti.add(udalost2);
 		//udalost1.printUdalost();
 		
 		while(!zasobnikUdalosti.isEmpty()){
