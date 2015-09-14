@@ -2,7 +2,7 @@ package simulace;
 
 public class tramvaj {
 	
-		
+	//overeni spojeni s GitHub	
 
 	public String toString() {
 		return "tramvaj cislo "+ id + "se naleza v stanici " + dosazenaStanice + " a je ve stavu " + stav;
