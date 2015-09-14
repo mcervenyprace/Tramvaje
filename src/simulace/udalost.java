@@ -103,7 +103,7 @@ public class udalost {
 	
 	
 	
-	public static udalost vyvolejUdalost(udalost event,ArrayList zasobnikUdalosti,Random gen,int Konec){
+	public static udalost vyvolejUdalost(udalost event,ArrayList zasobnikUdalosti,Random gen,int Konec,boolean karamboly){
 		
 		typUdalosti typ = event.getTyp();
 		udalost novaUdalost = new udalost();
@@ -183,7 +183,7 @@ public class udalost {
 			tramcka.setPosledniUdalost(novaUdalost);
 			
 			//ZAVEDENI KARAMBOLU
-			if(nova.getNazev() == "Uzlova"){
+			if((nova.getNazev() == "Uzlova") && karamboly == true){
 				Iterator projdi = zasobnikUdalosti.iterator();
 				for(int i=0;i<zasobnikUdalosti.size();i++){
 					udalost udal = (udalost) projdi.next();

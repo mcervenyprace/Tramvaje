@@ -10,6 +10,9 @@ import simulace.udalost.typUdalosti;
 
 public class run {
 	
+	
+	public static final boolean karambol = true;
+	
 	public static final int nastupVystup = 3; 
 	public static final int minutaVterin = 60; 
 
@@ -127,7 +130,7 @@ public class run {
 		
 		while(!zasobnikUdalosti.isEmpty()){
 			udalost vybranaUdalost = (udalost) zasobnikUdalosti.remove(0);		
-			udalost.vyvolejUdalost(vybranaUdalost,zasobnikUdalosti,nahoda,casMax);
+			udalost.vyvolejUdalost(vybranaUdalost,zasobnikUdalosti,nahoda,casMax,karambol);
 			}
 				
 		
