@@ -86,7 +86,7 @@ public class run {
 		
 		//vytvoreni tramvaji
 		
-		tramvaj tram1 = new tramvaj(tramvaj.stavTramvaje.vprovozu, tramvaj.smerTramvaje.vpred, poleZastavek1[0], polestanic1[0], "RX2");
+		tramvaj tram1 = new tramvaj(tramvaj.stavTramvaje.vprovozu, tramvaj.smerTramvaje.vpred, poleZastavek1[3], polestanic1[3], "RX2");
 		tram1.printTramvaj();
 		
 		tramvaj tram2 = new tramvaj(tramvaj.stavTramvaje.rozbita, tramvaj.smerTramvaje.vzad, poleZastavek2[2], polestanic2[2], "VU12");
@@ -114,7 +114,7 @@ public class run {
 		Stack zasobnikUdalosti = new Stack(); //zasobnik s udalostmi
 		Random nahoda = new Random(); // generator nahodnych cisel
 		
-		udalost udalost1 = new udalost(t, t, udalost.typUdalosti.jizdaVpred, tram1.getId(), tram1.getMisto(),tram1,nahoda);
+		udalost udalost1 = new udalost(t, t, udalost.typUdalosti.nastupVystup, tram1.getId(), tram1.getMisto(),tram1,nahoda);
 		tram1.setPosledniUdalost(udalost1);
 		
 		zasobnikUdalosti.push(udalost1);

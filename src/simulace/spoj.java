@@ -40,6 +40,8 @@ public class spoj {
 		this.varianceCesty = varianceCesty;
 	}
 	
+	public spoj(){}
+	
 	public linka getLinkaTohotoSpoje() {
 		return linkaTohotoSpoje;
 	}

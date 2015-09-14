@@ -106,7 +106,7 @@ public class udalost {
 	public static udalost vyvolejUdalost(udalost event,Stack zasobnikUdalosti,Random gen){
 		
 		typUdalosti typ = event.getTyp();
-		
+		udalost novaUdalost = new udalost();
 		if(typ == typUdalosti.jizdaVpred){
 			//PRIPAD ZE SE JEDE DOPREDU => nova udalost je nastup/vystup
 			typUdalosti typNovy = typUdalosti.nastupVystup;
@@ -130,9 +130,9 @@ public class udalost {
 			konec.zvysCasMin(vygenerovanyCas);
 
 			
-			udalost novaUdalost = new udalost(event.getKonecUdalosti(), konec, typNovy, event.tram.getId(), nova.getNazev(), event.tram, gen);
+			novaUdalost = new udalost(event.getKonecUdalosti(), konec, typNovy, event.tram.getId(), nova.getNazev(), event.tram, gen);
 			tramvaj tramcka = event.getTram();
-			novaUdalost.printUdalost();
+			//novaUdalost.printUdalost();
 			tramcka.setPosledniUdalost(novaUdalost);
 		}
 		else{
@@ -142,38 +142,66 @@ public class udalost {
 			
 			stanice staniceByla = event.tram.getDosazenaStanice();
 			tramvaj.smerTramvaje smernice = event.tram.getSmer();
+			stanice nova = new stanice("pass");
+			spoj novy = new spoj();
+			
 			
 			if(smernice == tramvaj.smerTramvaje.vpred){
-				stanice nova = staniceByla.getNasledujici();
-				if(nova == null){}
+				nova = staniceByla.getNasledujici();
+				novy = staniceByla.getNasledujiciSpoj();
+				if(nova == null){//obraceniSmeru
+					event.tram.setSmer(tramvaj.smerTramvaje.vzad);
+					nova = staniceByla.getPredchozi();
+					novy = staniceByla.getPredchoziSpoj();
+				}
 			}
-			else{
-				stanice nova = staniceByla.getPredchozi();
+			else{//smer vzad
+				nova = staniceByla.getPredchozi();
+				novy = staniceByla.getPredchoziSpoj();
+				if(nova == null){//obraceniSmeru
+					event.tram.setSmer(tramvaj.smerTramvaje.vpred);
+					nova = staniceByla.getNasledujici();
+					novy = staniceByla.getNasledujiciSpoj();
 			}
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		udalost aha = new udalost();
-		return aha;
-		
-		
-		
-		
-	}
+			
+			stanice stara = staniceByla;
+			//je dana stanice stara,nova a spoj k nim novy
+			
+			udajCasu konec = cas.udajCasu.kopie(event.getKonecUdalosti());
+			
+			int prum = novy.getPrumernaDobaCesty();
+			int var = novy.getVarianceCesty();			
+			int vygenerovanyCas = prum + gen.nextInt(var+1);
+			
+			konec.zvysCasMin(vygenerovanyCas);
+			String retezec = "Jede z: " + stara.getNazev() + " do: " + nova.getNazev();
+			novaUdalost = new udalost(event.getKonecUdalosti(), konec, typNovy, event.tram.getId(), retezec, event.tram, gen);
+			tramvaj tramcka = event.getTram();
+			//novaUdalost.printUdalost();
+			tramcka.setPosledniUdalost(novaUdalost);
+			
+			
+			
+			
+			
+			
+			}
 	
 	
+		Stack pomocny = new Stack();
+		boolean b = true;
+		while (b)
+		try{
+			udalost vybrana= (udalost) zasobnikUdalosti.pop();		
+		}
+		catch (EmptyStackException e) {
+			b = false;
+		}
 	
-	
-	
+		
+		zasobnikUdalosti.push(novaUdalost);
+		return novaUdalost;}
 	
 }
