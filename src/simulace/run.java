@@ -105,21 +105,25 @@ public class run {
 		System.out.println("Zadejte prosim pocet vterin po ktere ma simulace bezet:");
 		// get user input for a
 		//int casMax = reader.nextInt();		
-		int casMax = 1;
+		int casMax = 6000;
 		
 		udajCasu t = new udajCasu(0, 0,0, 0);
 		System.out.println("Pocatecni cas je:");
 		t.vypis();
 		
-		Stack zasobnikUdalosti = new Stack(); //zasobnik s udalostmi
+		ArrayList zasobnikUdalosti = new ArrayList(); //zasobnik s udalostmi
 		Random nahoda = new Random(); // generator nahodnych cisel
 		
 		udalost udalost1 = new udalost(t, t, udalost.typUdalosti.nastupVystup, tram1.getId(), tram1.getMisto(),tram1,nahoda);
 		tram1.setPosledniUdalost(udalost1);
 		
-		zasobnikUdalosti.push(udalost1);
-		udalost1.printUdalost();
-		udalost.vyvolejUdalost(udalost1,zasobnikUdalosti,nahoda);
+		zasobnikUdalosti.add(udalost1);
+		//udalost1.printUdalost();
+		
+		while(!zasobnikUdalosti.isEmpty()){
+			udalost vybranaUdalost = (udalost) zasobnikUdalosti.remove(0);		
+			udalost.vyvolejUdalost(vybranaUdalost,zasobnikUdalosti,nahoda,casMax);
+			}
 				
 		
 	}

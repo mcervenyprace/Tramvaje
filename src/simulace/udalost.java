@@ -103,7 +103,7 @@ public class udalost {
 	
 	
 	
-	public static udalost vyvolejUdalost(udalost event,Stack zasobnikUdalosti,Random gen){
+	public static udalost vyvolejUdalost(udalost event,ArrayList zasobnikUdalosti,Random gen,int Konec){
 		
 		typUdalosti typ = event.getTyp();
 		udalost novaUdalost = new udalost();
@@ -132,7 +132,7 @@ public class udalost {
 			
 			novaUdalost = new udalost(event.getKonecUdalosti(), konec, typNovy, event.tram.getId(), nova.getNazev(), event.tram, gen);
 			tramvaj tramcka = event.getTram();
-			//novaUdalost.printUdalost();
+			novaUdalost.printUdalost();
 			tramcka.setPosledniUdalost(novaUdalost);
 		}
 		else{
@@ -179,7 +179,7 @@ public class udalost {
 			String retezec = "Jede z: " + stara.getNazev() + " do: " + nova.getNazev();
 			novaUdalost = new udalost(event.getKonecUdalosti(), konec, typNovy, event.tram.getId(), retezec, event.tram, gen);
 			tramvaj tramcka = event.getTram();
-			//novaUdalost.printUdalost();
+			novaUdalost.printUdalost();
 			tramcka.setPosledniUdalost(novaUdalost);
 			
 			
@@ -188,20 +188,41 @@ public class udalost {
 			
 			
 			}
-	
-	
-		Stack pomocny = new Stack();
-		boolean b = true;
-		while (b)
-		try{
-			udalost vybrana= (udalost) zasobnikUdalosti.pop();		
-		}
-		catch (EmptyStackException e) {
-			b = false;
-		}
-	
 		
-		zasobnikUdalosti.push(novaUdalost);
+		int hodnota = novaUdalost.getKonecUdalosti().vypoctiPoradi();
+		if(hodnota < Konec){
+		zaradUdalost(zasobnikUdalosti , novaUdalost);}
+		else
+		{System.out.println("DOSAZENO KONCE SIMULACE");}
 		return novaUdalost;}
 	
-}
+	
+	public static void zaradUdalost(ArrayList listek, udalost U){
+		Iterator listovac = listek.iterator();
+		int[] policko = new int[listek.size()];
+
+		for(int i=0;i<listek.size();i++){
+			udalost udal = (udalost) listovac.next();
+			int hodnota = udal.getKonecUdalosti().vypoctiPoradi();
+			policko[i] = hodnota;
+		}
+		int cislo = U.getKonecUdalosti().vypoctiPoradi();
+		int citac;
+		for(citac=0;citac<listek.size();citac++){
+			if(cislo>=policko[citac]){
+				break;
+			}
+		}
+		listek.add(citac, U);
+		System.out.println("Zarazeno");
+			
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+
