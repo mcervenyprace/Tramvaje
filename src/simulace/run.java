@@ -27,10 +27,26 @@ public class run {
 		final stanice[] polestanic1 = new stanice[4];
 		final stanice[] polestanic2 = new stanice[3];
 		
+		//vytvoreni a naplneni linky A stanicemi
+		
+		linka linkaA = new linka('A');
+		
+		for(int i=0;i<polestanic1.length;i++){
+			stanice novaStanice = new stanice(poleZastavek1[i]);
+			novaStanice.setLinkaTetoStanice(linkaA);
+			polestanic1[i] = novaStanice;
+			linkaA.pridejStanice(novaStanice);
+		}
+		
+		linkaA.vypis();
+		
+		
+		
+		
+		
 		
 		System.out.println("Vitejte v Martinovo simulaci tramvaji!");
 		//System.out.println(poleZastavek1[0]); //kontrola pole
-		
 		
 		}
 			
